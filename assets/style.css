@@ -362,7 +362,8 @@ body {
 }
 .hero__inner {
   position: relative;
-  padding: 205px 0 101px;
+  padding: 100px 0 101px;
+  height: 100vh;
 }
 
 .hero__shape {
@@ -463,8 +464,9 @@ body {
   margin-bottom: 85px;
 }
 .hero__heading h2 {
-  font-weight: 400;
-  font-size: 140px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 70px;
   line-height: 100%;
   letter-spacing: -0.02em;
   color: var(--white);
