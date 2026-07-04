@@ -1,0 +1,443 @@
+.hero__inner{
+    position: relative;
+    padding: 205px 0 101px;
+}
+.hero__shape{
+    position: absolute;
+    bottom: 0;
+    right: 98px;
+    z-index: 1;
+}
+.hero__bg{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.hero__wrapper{
+    position: relative;
+    z-index: 1;
+}
+.hero__content{
+    display: flex;
+    gap: 48px;
+    align-items: flex-end;
+}
+.hero__left{
+    width: 70.14%;
+    position: relative;
+}
+.hero__right{
+    width: 36.14%;
+}
+.hero__video-icon{
+    width: 154px;
+    height: 154px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--strock-dark-bg);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    img{
+        width: 27px;
+    }
+    &::before,
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid var(--strock-dark-bg);
+        opacity: 0;
+        animation: pulse-ring 2.5s linear infinite;
+    }
+    &::after{
+        animation-delay: 1.25s;
+    }
+}
+
+
+.hero__video{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-left: 114px;
+    margin-bottom: 118px;
+    span{
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 100%;
+        text-transform: capitalize;
+        color: var(--white);
+        em{
+            color:  var(--brand);
+            font-style: normal;
+            font-weight: 700;
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+        }
+    }
+}
+.hero__heading{
+    margin-bottom: 85px;
+    h2{
+        font-weight: 400;
+        font-size: 140px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        margin-bottom: 20px;
+        em{
+            color: var(--brand);
+            font-style: normal;
+            font-family: var(--heading-font);
+            font-weight: 700;
+            text-transform: uppercase;
+
+        }
+        &:last-child{
+            margin-left: 110px;
+            margin-bottom: 0;
+        }
+    }
+}
+.hero__count-items{
+    display: flex;
+}
+.hero__count-item{
+    position: relative;
+    padding-right: 60.5px;
+    &:last-child{
+        padding-right: 0;
+        padding-left: 60.5px;
+        &::before{
+            display: none;
+        }
+    }
+    &:nth-child(even){
+        padding-left: 60.5px;
+    }
+    &::before{
+        content: '';
+        width: 1px;
+        height: 80px;
+        background: var(--strock-dark-bg);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+    h4{
+        font-weight: 400;
+        font-size: 60px;
+        line-height: 120%;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        margin-bottom: 16px;
+    }
+    span{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        text-transform: capitalize;
+        color: var(--white);
+    }
+}
+.hero__autplay-video-wrap{
+    height: 635px;
+    position: relative;
+    margin-bottom: 63px;
+}
+.hero__autoplay-video{
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    &::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: #6c282875;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+.hero__video-tag-text{
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 100%;
+        color: var(--white);
+        position: absolute;
+        width: 100%;
+        bottom: 30px;
+        letter-spacing: 6%;
+        left: 0;
+        padding-left: 20px;
+        position: relative;
+        z-index: 2;
+}
+.hero__right-video-content{
+    p{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 160%;
+        color: var(--body-dark-bg);
+    }
+}
+.hero-tag-line-wrap{
+    border: 1px solid var(--strock-dark-bg);
+    border-radius: 4px;
+    padding: 0 20px;
+    max-width: max-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: -155px;
+    rotate: 90deg;
+    transform: translateY(-50%);
+    span{
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        color: var(--white);
+    }
+}
+.hero{
+   overflow: hidden;
+}
+
+.hero__bg{
+   overflow: hidden;
+}
+
+.hero__autoplay-video{
+   overflow: hidden;
+}
+
+@media (max-width:1399px){
+    .hero__video-tag-text{
+        font-size: 25px;
+    }
+    .hero__heading h2{
+        font-size: 120px;
+    }
+}
+@media (max-width:1280px){
+    .hero__autplay-video-wrap{
+        height: 490px;
+    }
+    .hero__inner {
+    padding: 120px 0 80px;
+    }
+        .hero__heading h2 {
+        font-size: 100px;
+    }
+.hero__count-item{
+    padding-right: 30.5px;
+    &:last-child{
+        padding-left: 30.5px;
+    }
+    &:nth-child(even){
+        padding-left: 30.5px;
+    }
+    &::before{
+        height: 80px;
+    }
+    h4{
+        font-weight: 400;
+    }
+}
+    .hero__video-tag-text {
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width:1099px){
+    .hero__heading h2 {
+        font-size: 85px;
+    }
+    .hero__left {
+        width: 65.14%;
+    }
+    .hero__inner {
+    padding: 130px 0 80px;
+    }   
+}
+
+
+@media (max-width:991px) {
+    .hero__content{
+        flex-direction: column;
+    }
+    .hero__left,
+    .hero__right{
+        width: 100%;
+    }
+    .hero__inner {
+    padding: 170px 0 80px;
+    }
+    .hero__heading h2 {
+    font-size: 115px;
+    }
+}
+
+@media (max-width:767px){
+    .hero__heading h2 {
+    font-size: 80px;
+    }
+    .hero__count-item h4{
+        font-size: 35px;
+    }
+}
+
+
+@media (max-width:575px){
+    .hero__heading h2 {
+    font-size: 42px;
+    }
+    .hero__heading h2:last-child{
+        margin-left: 68px;
+    }
+    .hero__video {
+        margin-left: 75px;
+        margin-bottom: 80px;
+    }
+    .hero__video-icon{
+        width: 80px;
+        height: 80px;
+    }
+    .hero__video span{
+        font-size: 20px;
+    }
+    .hero-tag-line-wrap span{
+        font-size: 18px;
+    }
+    .hero-tag-line-wrap{
+        top: 39%;
+        left: -123px;
+    }
+    .hero__video-icon img {
+    width: 15px;
+    }
+    .hero__count-item{
+    padding-right: 18.5px;
+    &:last-child{
+        padding-left: 18.5px;
+    }
+    &:nth-child(even){
+        padding-left: 18.5px;
+    }
+    &::before{
+        height: 80px;
+    }
+    h4{
+        font-size: 28px;
+    }
+}
+.header__left{
+    padding-left: 0;
+}
+.header__inner.active .header__left{
+    padding-left: 20px;
+}
+.hero__inner {
+    padding: 170px 0 60px;
+}
+}
+
+
+
+
+
+
+/* ওভারলে স্টাইল */
+.hero__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: none;
+}
+
+/* মডাল স্টাইল */
+.hero__video-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    background: #000;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+}
+
+/* ভিডিও রেসপন্সিভ কন্টেইনার */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ক্লোজ বাটন স্টাইল */
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #ff0000;
+}
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ভিডিওর রেশিও ঠিক রাখার জন্য */
+}

@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Graham';
+    src: url('Graham-Black.woff2') format('woff2'),
+        url('Graham-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graham';
+    src: url('Graham-Black_1.woff2') format('woff2'),
+        url('Graham-Black_1.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graham';
+    src: url('Graham-Bold.woff2') format('woff2'),
+        url('Graham-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graham';
+    src: url('Graham-Bold_1.woff2') format('woff2'),
+        url('Graham-Bold_1.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graham';
+    src: url('Graham-ExtraBold.woff2') format('woff2'),
+        url('Graham-ExtraBold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graham';
+    src: url('Graham-ExtraBold_1.woff2') format('woff2'),
+        url('Graham-ExtraBold_1.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graham';
+    src: url('Graham-ExtraLight.woff2') format('woff2'),
+        url('Graham-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graham';
+    src: url('Graham-ExtraLight_1.woff2') format('woff2'),
+        url('Graham-ExtraLight_1.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
