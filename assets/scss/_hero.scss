@@ -1,7 +1,7 @@
 .hero__inner{
     position: relative;
-    padding: 100px 0 101px;
-    height: 100vh;
+    padding: 150px 0 120px;
+    // height: 100vh;
 }
 .hero__shape{
     position: absolute;
@@ -96,11 +96,13 @@
     margin-bottom: 85px;
     h2{
         font-weight: 900;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         font-size: 70px;
         line-height: 100%;
         letter-spacing: -0.02em;
         color: var(--white);
+        // font-family: var(--display-font);
+        font-family: var(--primary-font);
         margin-bottom: 20px;
         em{
             color: var(--brand);
@@ -143,12 +145,13 @@
         right: 0;
     }
     h4{
-        font-weight: 400;
+        font-weight: 600;
         font-size: 60px;
         line-height: 120%;
         letter-spacing: -0.02em;
         color: var(--white);
         margin-bottom: 16px;
+        font-family: var(--display-font);
     }
     span{
         font-weight: 600;
@@ -186,14 +189,14 @@
     }
 }
 .hero__video-tag-text{
-        font-family: var(--second-family);
-        font-weight: 400;
-        font-size: 32px;
+        font-family: var(--display-font);
+        font-weight: 500;
+        font-size: 20px;
         line-height: 100%;
         color: var(--white);
         position: absolute;
         width: 100%;
-        bottom: 30px;
+        bottom: 50px;
         letter-spacing: 6%;
         left: 0;
         padding-left: 20px;
@@ -217,11 +220,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: -155px;
-    rotate: 90deg;
-    transform: translateY(-50%);
+    margin-bottom: 55px;
+    // position: absolute;
+    // top: 50%;
+    // left: -155px;
+    // rotate: 90deg;
+    // transform: translateY(-50%);
     span{
         font-weight: 600;
         font-size: 24px;
