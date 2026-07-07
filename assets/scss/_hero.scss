@@ -1,7 +1,7 @@
 .hero__inner{
     position: relative;
-    padding: 150px 0 120px;
-    // height: 100vh;
+        padding: 160px 0 70px;
+    height: 100vh;
 }
 .hero__shape{
     position: absolute;
@@ -75,7 +75,7 @@
     align-items: center;
     gap: 40px;
     margin-left: 114px;
-    margin-bottom: 118px;
+    margin-bottom: 70px;
     span{
         font-family: var(--second-family);
         font-weight: 400;
@@ -162,7 +162,7 @@
     }
 }
 .hero__autplay-video-wrap{
-    height: 635px;
+    height: 465px;
     position: relative;
     margin-bottom: 63px;
 }
