@@ -73,6 +73,7 @@ body {
   z-index: 0;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
+  border-radius: 5px;
 }
 
 .btn__left-arrow img,
@@ -132,10 +133,10 @@ body {
 
 .btn .btn__left-arrow,
 .btn .btn__right-arrow {
-  height: 40px;
+  height: 30px;
   position: absolute;
   text-align: center;
-  width: 40px;
+  width: 30px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -147,6 +148,7 @@ body {
   justify-content: center;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
+  border-radius: 5px;
 }
 
 .btn-black .btn__left-arrow,
