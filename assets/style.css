@@ -1753,9 +1753,14 @@ body {
   }
   .manufacturing__item-left {
     width: 100%;
+    height: 100% !important;
   }
   .manufacturing__item-right {
     width: 100%;
+    height: 400px;
+  }
+  .manufacturing__item-right img {
+    object-fit: cover !important;
   }
 }
 @media (max-width: 767px) {
@@ -1774,6 +1779,13 @@ body {
   }
   .manufacturing__text h4 {
     font-size: 30px;
+  }
+  .manufacturing__item-left {
+    height: auto !important;
+  }
+  .manufacturing__item-right {
+    width: 100%;
+    height: 300px;
   }
 }
 @media (max-width: 575px) {
