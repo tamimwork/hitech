@@ -20,7 +20,7 @@
     left: 0;
 }
 .why-hitech__container{
-    max-width: 1273px;
+    max-width: 1375px;
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
@@ -32,14 +32,15 @@
 }
 .why-hitech__heading{
     margin-top: 30px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     h2{
-        font-weight: 400;
-        font-size: 80px;
+        font-weight: 700;
+        font-size:45px;
         line-height: 90%;
-        letter-spacing: -0.02em;
+        letter-spacing: normal;
         text-transform: uppercase;
         color: var(--white);
+        font-family: var(--second-family);
     }
 }
 .why-hitech__left{
@@ -83,14 +84,14 @@
 .why-hitech__item-left{
     width: calc(100% - 136px);
     h4{
-        font-family: var(--second-family);
-        font-weight: 400;
-        font-size: 32px;
+        font-family: var(--display-font);
+        font-weight: 500;
+        font-size: 25px;
         line-height: 90%;
-        letter-spacing: -0.02em;
+        letter-spacing: normal;
         text-transform: uppercase;
         color: var(--white);
-        margin-bottom: 14px;
+        margin-bottom: 20px;
     }
     p{
         font-family: var(--font-family);
@@ -102,8 +103,8 @@
 }
 .why-hitech__number{
     h5{
-        font-family: var(--second-family);
-        font-weight: 400;
+        font-family: var(--display-font);
+        font-weight: 700;
         font-size: 80px;
         line-height: 120%;
         letter-spacing: -0.02em;
@@ -148,13 +149,13 @@
     margin-right: 0;
 }
 .why-hitech__heading h2 {
-    font-size: 63px;
+    font-size: 60px;
 }
 }
 
 @media (max-width:767px){
     .why-hitech__heading h2 {
-    font-size: 50px;
+    font-size: 45px;
 }
 .why-hitech__inner{
     padding: 60px 0;
@@ -179,6 +180,12 @@
         width: 100%;
     }
         .why-hitech__heading h2 {
-    font-size: 40px;
+    font-size: 35px;
 }
+}
+
+@media (max-width:472px){
+          .why-hitech__heading h2 {
+    font-size: 25px;
+}  
 }

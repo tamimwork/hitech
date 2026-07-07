@@ -471,7 +471,7 @@ body {
   line-height: 100%;
   letter-spacing: -0.02em;
   color: var(--white);
-  font-family: var(--primary-font);
+  font-family: var(--font-family);
   margin-bottom: 20px;
 }
 .hero__heading h2 em {
@@ -1438,7 +1438,7 @@ body {
 }
 
 .why-hitech__container {
-  max-width: 1273px;
+  max-width: 1375px;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
@@ -1452,15 +1452,16 @@ body {
 
 .why-hitech__heading {
   margin-top: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .why-hitech__heading h2 {
-  font-weight: 400;
-  font-size: 80px;
+  font-weight: 700;
+  font-size: 45px;
   line-height: 90%;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
   text-transform: uppercase;
   color: var(--white);
+  font-family: var(--second-family);
 }
 
 .why-hitech__left {
@@ -1507,14 +1508,14 @@ body {
   width: calc(100% - 136px);
 }
 .why-hitech__item-left h4 {
-  font-family: var(--second-family);
-  font-weight: 400;
-  font-size: 32px;
+  font-family: var(--display-font);
+  font-weight: 500;
+  font-size: 25px;
   line-height: 90%;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
   text-transform: uppercase;
   color: var(--white);
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 .why-hitech__item-left p {
   font-family: var(--font-family);
@@ -1525,8 +1526,8 @@ body {
 }
 
 .why-hitech__number h5 {
-  font-family: var(--second-family);
-  font-weight: 400;
+  font-family: var(--display-font);
+  font-weight: 700;
   font-size: 80px;
   line-height: 120%;
   letter-spacing: -0.02em;
@@ -1570,12 +1571,12 @@ body {
     margin-right: 0;
   }
   .why-hitech__heading h2 {
-    font-size: 63px;
+    font-size: 60px;
   }
 }
 @media (max-width: 767px) {
   .why-hitech__heading h2 {
-    font-size: 50px;
+    font-size: 45px;
   }
   .why-hitech__inner {
     padding: 60px 0;
@@ -1598,7 +1599,12 @@ body {
     width: 100%;
   }
   .why-hitech__heading h2 {
-    font-size: 40px;
+    font-size: 35px;
+  }
+}
+@media (max-width: 472px) {
+  .why-hitech__heading h2 {
+    font-size: 25px;
   }
 }
 .manufacturing__inner {
