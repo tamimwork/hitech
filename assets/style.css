@@ -1144,7 +1144,7 @@ body {
 .product-card__left h3 {
   font-family: var(--second-family);
   font-weight: 700;
-  font-size: 120px;
+  font-size: 80px;
   line-height: 120%;
   letter-spacing: -0.02em;
   text-transform: uppercase;
