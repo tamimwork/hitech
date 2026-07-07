@@ -21,27 +21,27 @@
     var mm = gsap.matchMedia();
 
     // Shudhumatro 992px theke boro screen e horizontal scroll hobe
-    mm.add("(min-width: 992px)", function() {
-      gsap.to(wrapper, {
-        x: function () {
-          return -(wrapper.scrollWidth - track.clientWidth);
-        },
-        ease: 'none',
-        scrollTrigger: {
-          id: 'product-h-scroll',
-          trigger: section,
-          start: 'top top',
-          end: function () {
-            return '+=' + (wrapper.scrollWidth - track.clientWidth);
-          },
-          scrub: true,        // ties slide progress directly to scroll/wheel position
-          pin: true,          // locks the section while cards slide
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          refreshPriority: 1  // 💡 আপডেট: পিন সেকশনের প্রায়োরিটি বাড়ানো হলো
-        }
-      });
-    });
+mm.add("(min-width: 992px)", function() {
+  gsap.to(wrapper, {
+    x: function () {
+      return -(wrapper.scrollWidth - track.clientWidth);
+    },
+    ease: 'none',
+    scrollTrigger: {
+      id: 'product-h-scroll',
+      trigger: track,        // ⬅️ section এর বদলে card row (.product__content) এ trigger
+      start: 'top top',      // card row VP এর top এ পৌঁছালে তবেই pin শুরু হবে
+      end: function () {
+        return '+=' + (wrapper.scrollWidth - track.clientWidth);
+      },
+      scrub: true,
+      pin: track,             // ⬅️ পুরো section না, শুধু card row (.product__content) pin হবে
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      refreshPriority: 1
+    }
+  });
+});
   }
  
   window.addEventListener('load', initProductHorizontalScroll);
