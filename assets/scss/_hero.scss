@@ -33,6 +33,7 @@
 .hero__left{
     width: 70.14%;
     position: relative;
+    top: 22px;
 }
 .hero__right{
     width: 36.14%;
@@ -291,6 +292,7 @@
     .hero__left,
     .hero__right{
         width: 100%;
+        top: 0;
     }
     .hero__inner{
         padding: 196px 0 100px;
