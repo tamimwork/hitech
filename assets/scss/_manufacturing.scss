@@ -52,7 +52,7 @@
 .manufacturing__item {
     padding: 10px 15px 10px 30px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 24px;
     justify-content: space-between;
     border: 1px solid var(--strock-whtie-bg);
@@ -78,7 +78,7 @@
 .manufacturing__icon {
     width: 80px;
     height: 80px;
-    margin-bottom: 83px;
+    margin-bottom: 40px;
 }
 
 .manufacturing__text {
@@ -92,7 +92,7 @@
         // letter-spacing: -0.02em;
         text-transform: uppercase;
         color: var(--dark);
-        margin-bottom: 14px;
+        margin-bottom: 35px;
     }
 
     p {
