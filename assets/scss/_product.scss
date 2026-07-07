@@ -10,7 +10,12 @@
     .btn:hover .btn__text {
     transform: translateX(45px);
 }
-
+.product-card__btns{
+    a{
+        display: flex;
+        max-width: max-content;
+    }
+}
 }
 @media (min-width:1921px){
     .product-container{
@@ -202,6 +207,9 @@
     .product-card__info-box{
         margin-bottom: 70px;
     }
+    .product__heading{
+        max-width: 940px;
+    }
 }
 
 
@@ -229,6 +237,10 @@
     .product__inner{
         padding: 0 0 80px;
     }
+    .product__heading {
+        max-width: 750px;
+    }
+
 }
 
 
@@ -236,11 +248,12 @@
     .product-card{
         flex-direction: column-reverse;
             scroll-snap-align: start;
-    flex: 0 0 85%; 
+    flex: 1 0 100%; 
+    height: auto;
     }
     .product__title-box{
         flex-direction: column;
-        gap: 30px;
+        gap: 60px;
     }
     .product__heading{
         max-width: 100%;
@@ -275,7 +288,9 @@
 }
 @media (max-width: 575px) {
     .product__heading h2 {
-        font-size: 50px;
+        font-size: 35px;
+        line-height: 100%;
+        letter-spacing: normal;
     }
     .product-card__info{
         flex: 1 0 100%;
