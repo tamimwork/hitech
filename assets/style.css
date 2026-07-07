@@ -365,7 +365,7 @@ body {
 }
 .hero__inner {
   position: relative;
-  padding: 160px 0 70px;
+  padding: 108px 0 70px;
   height: 100vh;
 }
 
@@ -410,8 +410,8 @@ body {
 }
 
 .hero__video-icon {
-  width: 154px;
-  height: 154px;
+  width: 90px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -422,7 +422,7 @@ body {
   z-index: 1;
 }
 .hero__video-icon img {
-  width: 27px;
+  width: 17px;
 }
 .hero__video-icon::before, .hero__video-icon::after {
   content: "";
@@ -464,7 +464,7 @@ body {
 }
 
 .hero__heading {
-  margin-bottom: 85px;
+  margin-bottom: 40px;
 }
 .hero__heading h2 {
   font-weight: 900;
@@ -533,9 +533,9 @@ body {
 }
 
 .hero__autplay-video-wrap {
-  height: 465px;
+  height: 400px;
   position: relative;
-  margin-bottom: 63px;
+  margin-bottom: 30px;
 }
 
 .hero__autoplay-video {
