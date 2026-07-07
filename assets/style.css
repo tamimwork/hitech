@@ -1612,6 +1612,11 @@ body {
   position: relative;
   overflow: hidden;
 }
+.manufacturing__inner .heading-tag-box {
+  opacity: 1 !important;
+  visibility: visible !important;
+  margin-bottom: 60px;
+}
 
 .manufacturing__shape1 {
   position: absolute;
@@ -1635,14 +1640,13 @@ body {
 
 .manufacturing__heading {
   margin-top: 20px;
-  max-width: 577px;
+  margin-bottom: 40px;
 }
 .manufacturing__heading h2 {
   font-family: var(--second-family);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 80px;
-  line-height: 90%;
-  letter-spacing: -0.02em;
+  line-height: 100%;
   text-transform: uppercase;
   color: var(--dark);
 }
@@ -1694,11 +1698,10 @@ body {
   margin-bottom: 40px;
 }
 .manufacturing__text h4 {
-  font-family: var(--second-family);
-  font-weight: 400;
+  font-family: var(--display-font);
+  font-weight: 600;
   font-size: 40px;
   line-height: 90%;
-  letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--dark);
   margin-bottom: 14px;
