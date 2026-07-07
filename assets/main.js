@@ -93,65 +93,21 @@ cards.forEach((card, i) => {
 // End Manufacturing Card Swipe
 
 
-// Start Bg Video Parallax
-
-// $(document).ready(function(){
-//     gsap.registerPlugin(ScrollTrigger);
-//     gsap.to('.video__wrapper video', {
-//         yPercent: 30,
-//         ease: 'none',
-//         scrollTrigger: {
-//             trigger: '.video',
-//             start: 'top top',
-//             end: 'bottom top',
-//             scrub: true,
-//         }
-//     });
-// })
-
-// End Bg Video Parallax
-
-
-// সব সেকশন এবং মেনু লিংক সিলেক্ট করা
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.header__menu ul li a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    
-    // স্ক্রল পজিশন চেক করা
-    if (pageYOffset >= (sectionTop - 200)) { // 200 হলো offset, আপনার প্রয়োজনমতো অ্যাডজাস্ট করবেন
-      current = section.getAttribute('id');
-    }
-  });
-
-  // মেনু লিংকে 'active' ক্লাস আপডেট করা
-  navLinks.forEach((link) => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-});
 
 
 
 
 
+
+
+
+
+// Start Hero Button Modal Open
 
 $(document).ready(function() {
-    // .hero__video-তে ক্লিক করলে মডাল ওপেন হবে
     $('.hero__video').on('click', function(e) {
         e.preventDefault();
-
-        // লোকাল ভিডিওর পাথ
         var videoSrc = "assets/intro.mp4"; 
-
-        // <iframe> এর বদলে এখানে HTML5 <video> ট্যাগ ব্যবহার করা হয়েছে
         var modalHtml = `
             <div class="hero__overlay"></div>
             <div class="hero__video-modal">
@@ -162,15 +118,14 @@ $(document).ready(function() {
             </div>
         `;
 
-        // বডিতে মডালটি যুক্ত করা এবং ফেড-ইন অ্যানিমেশন দেওয়া
         $('body').append(modalHtml);
         $('.hero__overlay, .hero__video-modal').fadeIn(300);
     });
-
-    // ক্লোজ বাটন বা ওভারলেতে ক্লিক করলে মডাল বন্ধ হবে
     $(document).on('click', '.close-modal, .hero__overlay', function() {
         $('.hero__overlay, .hero__video-modal').fadeOut(300, function() {
-            $(this).remove(); // অ্যানিমেশন শেষে ডম থেকে ডিভগুলো রিমুভ করে দেবে
+            $(this).remove();
         });
     });
 });
+
+// End Hero Button Modal Open
