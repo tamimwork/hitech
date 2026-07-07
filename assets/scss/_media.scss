@@ -14,7 +14,21 @@
 }
   
   
-  
+  .media__heading{
+    margin-top: 40px;
+    h2{
+      font-family: var(--second-family);
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: var(--dark);
+    em{
+      font-style: normal;
+      color: var(--primary);
+    }
+    }
+  }
   .media__inner{
     padding: 80px 0 80px;
     position: relative;
