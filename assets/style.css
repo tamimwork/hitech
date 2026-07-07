@@ -780,7 +780,7 @@ body {
   object-fit: cover; /* ভিডিওর রেশিও ঠিক রাখার জন্য */
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1921px) {
   .hero__inner {
     position: relative;
     padding: 205px 0 101px;
