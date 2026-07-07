@@ -1119,18 +1119,13 @@ body {
   font-style: normal;
 }
 
-.product__content {
-  background-color: var(--primary);
-}
-
 .product__item {
-  height: 100%;
+  height: auto;
 }
 
 .product-card {
   display: flex;
   height: 100%;
-  background-color: var(--primary);
 }
 .product-card:hover .product__card-img img {
   transform: scale(1.2) rotate(-2deg);

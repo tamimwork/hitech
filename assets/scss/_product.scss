@@ -47,16 +47,13 @@
         }
     }
 }
-.product__content{
-    background-color: var(--primary);
-}
+
 .product__item{
-    height: 100%;
+    height: auto;
 }
 .product-card{
     display: flex;   
     height: 100%;
-    background-color: var(--primary);
     &:hover{
         .product__card-img{
             img{
