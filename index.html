@@ -1249,7 +1249,7 @@
     <script src="assets/gsap.js"></script>
     <script src="assets/global-animation.js"></script>
     <script src="assets/hero-animation.js"></script>
-    <!-- <script src="assets/about-animation.js"></script> -->
+    <script src="assets/about-animation.js"></script>
     <script src="assets/product-animation.js"></script>
     <script src="assets/why-hitech-animation.js"></script>
     <script src="assets/manufacturing-animation.js"></script>
@@ -1264,17 +1264,16 @@ $(function () {
  
   var $overlay = $('#manufacturingModalOverlay');
  
-  /* "View More" বাটনে ক্লিক করলে সবচেয়ে কাছের .manufacturing__item থেকে
-     data-* attribute পড়ে modal fill হয় — কোনো আলাদা content array নেই। */
+
   $(document).on('click', '.manufacturing__item .manufacturing__btn .btn', function (e) {
     e.preventDefault();
     var $item = $(this).closest('[data-modal-image]');
     openManufacturingModal($item);
   });
  
-  // পুরো item card-এ ক্লিক করলেও modal খুলবে (বাটনের বাইরে ক্লিক করলে)
+
   $(document).on('click', '.manufacturing__item[data-modal-image]', function (e) {
-    if ($(e.target).closest('.manufacturing__btn').length) return; // বাটনের ক্লিক উপরের handler-এ হ্যান্ডেল হবে
+    if ($(e.target).closest('.manufacturing__btn').length) return; 
     openManufacturingModal($(this));
   });
  
@@ -1307,7 +1306,6 @@ $(function () {
         )
       );
     });
- 
     $('.manufacturing-modal__content').scrollTop(0);
     $overlay.addClass('is-active');
     $('body').css('overflow', 'hidden');
