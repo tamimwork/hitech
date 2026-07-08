@@ -1785,6 +1785,222 @@ body.modal-open-lock {
     max-width: 100%;
   }
 }
+/* ============================================================
+   MODAL
+   ============================================================ */
+.pm-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(156, 16, 6, 0.25), transparent 60%), rgba(43, 10, 10, 0.94);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  padding: 20px;
+}
+
+.pm-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.pm-locked {
+  overflow: hidden;
+}
+
+.pm-modal {
+  width: 70%;
+  max-width: 980px;
+  max-height: 85vh;
+  background: var(--white);
+  border-radius: var(--modal-radius);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(30px) scale(0.97);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.35);
+}
+
+.pm-overlay.is-open .pm-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.pm-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  font-size: 18px;
+  color: var(--dark);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.pm-close:hover {
+  background: var(--brand);
+  color: var(--white);
+  transform: rotate(90deg);
+}
+
+.pm-hero {
+  position: relative;
+  flex-shrink: 0;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+}
+
+.pm-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 6, 6, 0.05) 0%, rgba(10, 6, 6, 0.15) 45%, rgba(10, 6, 6, 0.85) 100%);
+}
+
+.pm-hero-text {
+  position: absolute;
+  left: 40px;
+  right: 90px;
+  bottom: 26px;
+  z-index: 2;
+  color: var(--white);
+}
+
+.pm-hero-tag {
+  display: block;
+  font-family: var(--second-family);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+}
+
+.pm-hero-title {
+  font-family: var(--display-font);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.pm-body {
+  padding: 34px 40px 40px;
+  overflow-y: auto;
+}
+
+.pm-body::-webkit-scrollbar {
+  width: 7px;
+}
+
+.pm-body::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 17, 0.15);
+  border-radius: 10px;
+}
+
+.pm-desc {
+  font-family: var(--second-family);
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #444;
+  margin: 0 0 30px;
+}
+
+.pm-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.pm-info-card {
+  background: var(--light-bg);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.pm-info-label {
+  font-family: var(--second-family);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--body-white-bg);
+  margin-bottom: 6px;
+}
+
+.pm-info-value {
+  font-family: var(--font-family);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.35;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .product-card {
+    flex-direction: column-reverse;
+  }
+  .product-card__right {
+    min-height: 220px;
+  }
+  .pm-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .pm-modal {
+    width: 92%;
+    max-height: 90vh;
+  }
+  .pm-hero {
+    height: 200px;
+  }
+  .pm-hero-text {
+    left: 22px;
+    right: 60px;
+    bottom: 18px;
+  }
+  .pm-body {
+    padding: 24px 22px 30px;
+  }
+  .pm-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .product-card__left {
+    padding: 26px 24px;
+  }
+  .pm-close {
+    width: 34px;
+    height: 34px;
+    top: 14px;
+    right: 14px;
+  }
+}
+@media (max-width: 420px) {
+  .pm-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* ═══════════════════════════════════════════════════════════
    product-anim.scss
    Append this block to your existing stylesheet.

@@ -363,3 +363,89 @@ mm.add("(min-width: 992px)", function() {
   });
 
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function () {
+ 
+    var $overlay  = $('#pmOverlay');
+    var $hero     = $('#pmHero');
+    var $tag      = $('#pmTag');
+    var $title    = $('#pmTitle');
+    var $desc     = $('#pmDesc');
+    var $infoGrid = $('#pmInfoGrid');
+ 
+    // Open modal — reads everything from data-* attributes on the clicked .product__item
+    $(document).on('click', '.product__item', function () {
+        var $item = $(this);
+ 
+        var image = $item.data('modal-image');
+        var tag   = $item.data('tag');
+        var title = $item.data('title');
+        var desc  = $item.data('description');
+        var info  = $item.data('info'); // jQuery auto-parses valid JSON in data-info
+ 
+        $hero.css('background-image', 'url(' + image + ')');
+        $tag.text(tag || '');
+        $title.text(title || '');
+        $desc.text(desc || '');
+ 
+        $infoGrid.empty();
+        if (Array.isArray(info)) {
+            info.forEach(function (row) {
+                var $card = $(
+                    '<div class="pm-info-card">' +
+                        '<div class="pm-info-label"></div>' +
+                        '<div class="pm-info-value"></div>' +
+                    '</div>'
+                );
+                $card.find('.pm-info-label').text(row.label);
+                $card.find('.pm-info-value').text(row.value);
+                $infoGrid.append($card);
+            });
+        }
+ 
+        $overlay.addClass('is-open');
+        $('body').addClass('pm-locked');
+    });
+ 
+    // Close on: close button, overlay click, or Escape key
+    $('#pmClose').on('click', closeModal);
+    $overlay.on('click', function (e) {
+        if (e.target === this) closeModal();
+    });
+    $(document).on('keydown', function (e) {
+        if (e.key === 'Escape' && $overlay.hasClass('is-open')) closeModal();
+    });
+ 
+    function closeModal() {
+        $overlay.removeClass('is-open');
+        $('body').removeClass('pm-locked');
+    }
+ 
+});
