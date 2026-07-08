@@ -198,7 +198,7 @@
                                         </div>
                                         <div class="about__btn-wrap">
                                             <div class="about__btns">
-                                                <a href="#" class="btn btn-white">
+                                                <a href="javascript:void(0)" class="btn btn-white" id="aboutViewMoreBtn">
                                                     <span class="btn__left-arrow">
                                                         <img src="assets/button-arrow-black.svg" alt="Button">
                                                     </span>
@@ -338,7 +338,7 @@
                                                 </div>
                                                 <div class="product-card__right">
                                                     <div class="product__card-img">
-                                                        <img src="assets/product1.jpg" alt="">
+                                                        <img src="assets/product2.jpg" alt="">
                                                     </div>
                                                     <span class="product-card__badge">Raw Material</span>
                                                 </div>
@@ -385,7 +385,7 @@
                                                 </div>
                                                 <div class="product-card__right">
                                                     <div class="product__card-img">
-                                                        <img src="assets/product1.jpg" alt="">
+                                                        <img src="assets/product3.jpg" alt="">
                                                     </div>
                                                     <span class="product-card__badge">MS Sections</span>
                                                 </div>
@@ -1080,7 +1080,27 @@
     <!-- End Media Modal -->
 
 
-
+<!-- ===================== ABOUT MODAL ===================== -->
+<div class="about-modal-overlay" id="aboutModalOverlay" aria-hidden="true">
+  <div class="about-modal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+ 
+    <div class="about-modal__media">
+      <img class="about-modal__image" id="aboutModalImage" src="" alt="">
+      <div class="about-modal__image-overlay"></div>
+      <button type="button" class="about-modal__close" aria-label="Close">&times;</button>
+      <div class="about-modal__caption">
+        <span class="about-modal__eyebrow">1980s — Today</span>
+        <h3 class="about-modal__title" id="aboutModalTitle">The Founder's Journey</h3>
+      </div>
+    </div>
+ 
+    <div class="about-modal__panel" id="aboutModalBody">
+      <!-- timeline items injected by jQuery -->
+    </div>
+ 
+  </div>
+</div>
+<!-- =================== /ABOUT MODAL ======================= -->
 
     <script src="assets/script.js"></script>
     <script src="assets/slick.min.js"></script>

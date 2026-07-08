@@ -1155,6 +1155,7 @@ body {
 
 .about__left {
   width: 39.92%;
+  height: 536px;
 }
 .about__left img {
   width: 100%;
@@ -1261,6 +1262,7 @@ body {
   }
   .about__left {
     width: 100%;
+    height: auto;
   }
   .about__right {
     width: 100%;
@@ -1280,6 +1282,208 @@ body {
   }
   .about__right {
     padding: 35px 20px;
+  }
+}
+/* =========================================================
+    ABOUT MODAL
+    ========================================================= */
+.about-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(156, 16, 6, 0.25), transparent 60%), rgba(43, 10, 10, 0.94);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.about-modal-overlay.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+.about-modal {
+  position: relative;
+  display: flex; /* always side by side, no stacking */
+  width: clamp(320px, 70vw, 1200px);
+  height: min(680px, 88vh);
+  background: var(--white);
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  transform: translateY(24px) scale(0.97);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+}
+
+.about-modal-overlay.is-open .about-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* left: image, fixed, never scrolls */
+.about-modal__media {
+  position: relative;
+  width: 42%;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.about-modal__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-modal__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0) 45%, rgba(17, 17, 17, 0.9) 100%);
+}
+
+.about-modal__caption {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  color: var(--white);
+}
+
+.about-modal__eyebrow {
+  font-family: var(--second-family);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.about-modal__title {
+  font-family: var(--display-font);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 6px 0 0;
+  color: var(--white);
+}
+
+.about-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: var(--primary);
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+
+.about-modal__close:hover {
+  transform: rotate(90deg);
+  background: rgba(17, 17, 17, 0.6);
+}
+
+.about-modal__close:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+/* right: content, scrolls */
+.about-modal__panel {
+  width: 58%;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge/IE */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-modal__panel::-webkit-scrollbar {
+  display: none;
+} /* Chrome/Safari */
+.about-modal__item {
+  background: var(--primary);
+  border: 1px solid var(--white);
+  padding: 18px 20px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.about-modal__item-year {
+  font-family: var(--display-font);
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+}
+
+.about-modal__item-text {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-family: var(--font-family);
+}
+
+body.modal-open-lock {
+  overflow: hidden;
+}
+
+@media (max-width: 1280px) {
+  .about-modal {
+    width: calc(100% - 50px) !important;
+  }
+}
+/* 991px and below: back to image-on-top / text-scrolls-below,
+   image stays fixed at the top while the panel scrolls under it */
+@media (max-width: 991px) {
+  .about-modal {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .about-modal::-webkit-scrollbar {
+    display: none;
+  }
+  .about-modal__media {
+    width: 100% !important;
+    height: 570px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .about-modal__panel {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .about-modal-overlay {
+    padding: 0;
+  }
+  .about-modal {
+    width: calc(100% - 25px) !important;
+  }
+  .about-modal {
+    height: calc(100% - 25px);
   }
 }
 .product__inner {

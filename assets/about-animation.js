@@ -283,3 +283,79 @@ $(document).ready(function () {
     });
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function () {
+ 
+  // Edit this array to change what shows on the right side of the modal.
+  var timeline = [
+    { year: "1980", text: "The Rahman brothers begin iron and steel business to a modest extent, building expertise in the trade." },
+    { year: "Expansion", text: "Successful business growth leads to founding Rahman Knit Garments Ltd., now an internationally reputed knit composite factory." },
+    { year: "Founding Hi-Tech Steel", text: "With the ambition to be a bright figure in steel, the brothers re-established the business in an entirely new and broadened way, creating Hi-Tech Steel and Re-rolling Mills Ltd." },
+    { year: "World-Class Facility", text: "The mill is built on a 3 acre premises in Bhulta, Rupganj, Narayanganj, equipped with all vertical equipment as a high-end steel re-rolling operation capable of 100 MT daily production." },
+    { year: "Today", text: "Hi-Tech Steel is ready to meet the challenges to produce strong, durable and premium quality steel, building a nation with enriched infrastructure and a progressive economy." }
+  ];
+ 
+  function buildTimeline() {
+    var $body = $('#aboutModalBody').empty();
+    $.each(timeline, function (i, item) {
+      var $item = $('<div class="about-modal__item"></div>');
+      $item.append($('<h4 class="about-modal__item-year"></h4>').text(item.year));
+      $item.append($('<p class="about-modal__item-text"></p>').text(item.text));
+      $body.append($item);
+    });
+  }
+ 
+  function openModal() {
+    // pull the image already sitting in the About section, so the modal mirrors the markup
+    var $sourceImg = $('.about__left img').first();
+    $('#aboutModalImage').attr({
+      src: $sourceImg.attr('src'),
+      alt: $sourceImg.attr('alt') || 'Founder'
+    });
+ 
+    buildTimeline();
+ 
+    $('#aboutModalOverlay').addClass('is-open').attr('aria-hidden', 'false');
+    $('body').addClass('modal-open-lock');
+  }
+ 
+  function closeModal() {
+    $('#aboutModalOverlay').removeClass('is-open').attr('aria-hidden', 'true');
+    $('body').removeClass('modal-open-lock');
+  }
+ 
+  $(document).on('click', '#aboutViewMoreBtn', function (e) {
+    e.preventDefault();
+    openModal();
+  });
+ 
+  $(document).on('click', '.about-modal__close', closeModal);
+  $(document).on('click', '.about-modal-overlay', function (e) { if (e.target === this) closeModal(); });
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && $('#aboutModalOverlay').hasClass('is-open')) closeModal();
+  });
+ 
+});
