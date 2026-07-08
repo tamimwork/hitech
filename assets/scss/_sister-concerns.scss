@@ -168,7 +168,11 @@
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    background: var(--brand);
+            background:
+      radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(156, 16, 6, 0.25), transparent 60%),
+      rgb(43 10 10 / 94%);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     opacity: 1;
 }
 

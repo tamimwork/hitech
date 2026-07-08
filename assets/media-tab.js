@@ -35,8 +35,8 @@ $(function(){
       thumb: 'assets/founder.jpg',
       images: [
         'assets/product1.jpg',
-        'assets/founder.jpg',
-        'assets/why-hitech1.jpg'
+        'assets/product2.jpg',
+        'assets/product3.jpg'
       ]
     },
 

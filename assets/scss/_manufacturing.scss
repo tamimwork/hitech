@@ -59,6 +59,7 @@
     transform-origin: center top;
     background: var(--white);
     position: relative;
+    cursor: pointer;
 }
 .manufacturing__items {
     position: relative;
@@ -191,3 +192,170 @@
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============ Modal ============ */
+.manufacturing-modal, .manufacturing-modal * { box-sizing: border-box; }
+ 
+  .manufacturing-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(156, 16, 6, 0.25), transparent 60%),
+      rgb(43 10 10 / 94%);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+    padding: 20px;
+  }
+  .manufacturing-modal-overlay.is-active { opacity: 1; visibility: visible; z-index: 9999; }
+ 
+  .manufacturing-modal {
+    width: 70%;
+    height: 70%;
+    max-width: 1300px;
+    background: #fff;
+    color: #111;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    transform: translateY(24px) scale(.97);
+    opacity: 0;
+    transition: transform .35s ease, opacity .35s ease;
+    font-family: var(--font-family, "Roboto Slab", serif);
+  }
+  .manufacturing-modal-overlay.is-active .manufacturing-modal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+ 
+  .manufacturing-modal__close {
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(17,17,17,0.55);
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex; align-items:center; justify-content:center;
+    z-index: 5;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .manufacturing-modal__close:hover { background: var(--brand, #9c1006); transform: rotate(90deg); }
+ 
+  /* ছবি — fixed, কখনও স্ক্রল হবে না */
+  .manufacturing-modal__media {
+    flex: 0 0 44%;
+    max-width: 44%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .manufacturing-modal__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+ 
+  .manufacturing-modal__tag {
+    position: absolute;
+    left: 24px; bottom: 24px;
+    background: #fff;
+    color: var(--primary, #7a0116);
+    font-family: var(--second-family, "Outfit", sans-serif);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .5px;
+    padding: 8px 16px;
+    border-radius: 30px;
+  }
+ 
+  /* content — স্ক্রল হবে, scrollbar width 0 */
+  .manufacturing-modal__content {
+    flex: 1 1 auto;
+    height: 100%;
+    overflow-y: auto;
+    padding: 56px 56px 60px;
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* old Edge / IE */
+  }
+  .manufacturing-modal__content::-webkit-scrollbar { width: 0; height: 0; }
+ 
+  .manufacturing-modal__title {
+    font-family: var(--heading-font, "Oswald", sans-serif);
+    text-transform: uppercase;
+    font-size: 32px;
+    line-height: 1.2;
+    color: var(--primary, #7a0116);
+    margin: 0 0 22px;
+    letter-spacing: .5px;
+  }
+ 
+  .manufacturing-modal__desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #555;
+    margin: 0 0 10px;
+  }
+ 
+  .manufacturing-modal__info {
+    list-style: none;
+    margin: 30px 0 0;
+    padding: 0;
+  }
+  .manufacturing-modal__info li {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(17,17,17,0.08);
+    font-size: 15px;
+  }
+  .manufacturing-modal__info li .manufacturing-modal__info-label { color: #555; }
+  .manufacturing-modal__info li .manufacturing-modal__info-value { color: #111; font-weight: 600; text-align: right; }
+ 
+  @media (max-width: 1024px) {
+    .manufacturing-modal { width: 92%; height: 82%; flex-direction: column; }
+    .manufacturing-modal__media { flex: 0 0 240px; max-width: 100%; width: 100%; height: 240px; }
+    .manufacturing-modal__content { flex: 1 1 auto; padding: 34px 26px 40px; }
+    .manufacturing-modal__title { font-size: 24px; }
+  }
+ 
+  @media (max-width: 600px) {
+    .manufacturing-modal { height: 86%; border-radius: 10px; }
+    .manufacturing-modal__media { height: 190px; }
+    .manufacturing-modal__content { padding: 26px 20px 32px; }
+    .manufacturing-modal__title { font-size: 21px; }
+  }
