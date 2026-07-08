@@ -1544,6 +1544,7 @@ body.modal-open-lock {
 
 .product__item {
   height: auto;
+  cursor: pointer;
 }
 
 .product-card {
