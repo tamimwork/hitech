@@ -32,7 +32,7 @@ $(function(){
       type: 'image',
       title: 'Product Showcase',
       sub: 'Grade 60 reformed bars, bundled for dispatch.',
-      thumb: 'assets/founder.jpg',
+      thumb: 'assets/product1.jpg',
       images: [
         'assets/product1.jpg',
         'assets/product2.jpg',
@@ -43,26 +43,30 @@ $(function(){
     {
       id: 2,
       type: 'image',
-      title: 'Plant Floor',
-      sub: 'A look around the production hall.',
-      thumb: 'assets/why-hitech1.jpg',
+      title: 'Manufacturing',
+      sub: 'From molten metal to monumental strength',
+      thumb: 'assets/mfg1.jpg',
       images: [
-        'assets/why-hitech3.jpg',
-        'assets/why-hitech4.jpg',
-        'assets/why-hitech1.jpg'
+        'assets/mfg1.jpg',
+        'assets/mfg2.jpg',
+        'assets/mfg3.jpg',
+        'assets/mfg4.jpg',
+        'assets/mfg5.jpg',
+        'assets/mfg6.jpg'
       ]
     },
 
     {
       id: 3,
       type: 'image',
-      title: 'Meet the Team',
-      sub: 'Managing Director — on three decades in steel.',
-      thumb: 'assets/why-hitech4.jpg',
+      title: 'Why Hitech',
+      sub: 'Universal Structural Certification',
+      thumb: 'assets/why-hitech1.jpg',
       images: [
+        'assets/why-hitech1.jpg',
+        'assets/why-hitech2.jpg',
         'assets/why-hitech3.jpg',
-        'assets/why-hitech4.jpg',
-        'assets/why-hitech1.jpg'
+        'assets/why-hitech4.jpg'
       ]
     },
 
