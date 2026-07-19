@@ -232,6 +232,8 @@ body {
 .header__inner.active .header__logo {
   width: 55px;
   scale: 2;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .header__wrapper {
@@ -243,6 +245,9 @@ body {
 
 .header__logo {
   transition: width 0.35s ease, scale 0.35s ease;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .header__logo a {
   display: block;
@@ -368,6 +373,7 @@ body {
 .hero__inner {
   position: relative;
   padding: 108px 0 70px;
+  height: 100vh;
 }
 
 .hero__shape {
