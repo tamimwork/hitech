@@ -1,24 +1,18 @@
 /* ════════════════════════════════════════════════════════════
-   SISTER CONCERNS — cards animation + dynamic modal (jQuery + GSAP)
+   SISTER CONCERNS — dynamic modal only (jQuery, no GSAP)
 
    Load order on the page:
-     jQuery → GSAP → ScrollTrigger → sister-concerns-modal.js
+     jQuery → sister-concerns-modal.js
 
-   এই file টা ৩টা কাজ করে:
-     ১. .sister-concerns__item card গুলোর scroll-in entrance animation
-     ২. card hover micro-interaction (video zoom, logo lift, arrow shift)
-     ৩. ক্লিক করলে jQuery দিয়ে dynamically modal বানিয়ে, GSAP দিয়ে animate
-        করে খোলে — content + gallery সবই SISTER_CONCERNS_DATA থেকে আসে।
+   এই file টা শুধু modal এর কাজ করে:
+     ক্লিক করলে jQuery দিয়ে dynamically modal বানিয়ে খোলে —
+     content + gallery সবই SISTER_CONCERNS_DATA থেকে আসে।
+     কোনো GSAP animation নেই — class add/remove করেই
+     show/hide হয় (CSS এ যা transition আছে সেটাই কাজ করবে)।
    ════════════════════════════════════════════════════════════ */
 
 (function ($) {
     'use strict';
-
-    if (window.gsap && window.ScrollTrigger && gsap.registerPlugin) {
-        gsap.registerPlugin(ScrollTrigger);
-    }
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ────────────────────────────────────────────────────────
         DATA SOURCE
@@ -88,60 +82,7 @@
     let currentSlide = 0;
 
     /* ════════════════════════════════════════════════════════
-        STEP 1 — CARD SCROLL-IN ENTRANCE
-     ════════════════════════════════════════════════════════ */
-    function initItemEntrance() {
-        if (reduceMotion || !window.gsap) return;
-
-        gsap.utils.toArray('.sister-concerns__item').forEach((item, i) => {
-            gsap.fromTo(
-                item,
-                { autoAlpha: 0, y: 60 },
-                {
-                    autoAlpha: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: 'power4.out',
-                    delay: i * 0.1,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 88%',
-                    },
-                }
-            );
-        });
-    }
-
-    /* ════════════════════════════════════════════════════════
-        STEP 2 — CARD HOVER MICRO-INTERACTION
-     ════════════════════════════════════════════════════════ */
-    function initItemHover() {
-        $('.sister-concerns__item').each(function () {
-            const $item = $(this);
-            const video = $item.find('.sister-concerns__video video').get(0);
-            const logo = $item.find('.sister-concerns__logo').get(0);
-            const arrow = $item.find('.btn__right-arrow').get(0);
-
-            $item.on('mouseenter focus', function () {
-                if (reduceMotion || !window.gsap) return;
-                gsap.to($item, { y: -8, boxShadow: '0 30px 60px rgba(0,0,0,0.28)', duration: 0.5, ease: 'power3.out' });
-                if (video) gsap.to(video, { scale: 1.08, duration: 0.9, ease: 'power3.out' });
-                if (logo) gsap.to(logo, { y: -6, duration: 0.5, ease: 'power3.out' });
-                if (arrow) gsap.to(arrow, { x: 4, duration: 0.4, ease: 'power3.out' });
-            });
-
-            $item.on('mouseleave blur', function () {
-                if (reduceMotion || !window.gsap) return;
-                gsap.to($item, { y: 0, boxShadow: '0 0px 0px rgba(0,0,0,0)', duration: 0.5, ease: 'power3.out' });
-                if (video) gsap.to(video, { scale: 1, duration: 0.9, ease: 'power3.out' });
-                if (logo) gsap.to(logo, { y: 0, duration: 0.5, ease: 'power3.out' });
-                if (arrow) gsap.to(arrow, { x: 0, duration: 0.4, ease: 'power3.out' });
-            });
-        });
-    }
-
-    /* ════════════════════════════════════════════════════════
-        STEP 3 — BUILD MODAL SKELETON (একবারই body তে inject হয়)
+        STEP 1 — BUILD MODAL SKELETON (একবারই body তে inject হয়)
      ════════════════════════════════════════════════════════ */
     function buildModalSkeleton() {
         const markup = `
@@ -186,7 +127,7 @@
     }
 
     /* ════════════════════════════════════════════════════════
-        STEP 4 — POPULATE MODAL FROM DATA
+        STEP 2 — POPULATE MODAL FROM DATA
      ════════════════════════════════════════════════════════ */
     function populateModal(data) {
         $modal.attr('data-modal-name', 'sister-concerns-modal--' + data.id);
@@ -211,7 +152,7 @@
     }
 
     /* ────────────────────────────────────────────────────────
-        Gallery (slick-style prev/next + dots, GSAP crossfade)
+        Gallery (slick-style prev/next + dots, plain opacity swap)
         — image অথবা video, যেটাই হোক, একই class দিয়ে একইভাবে
           width:100% / height:100% / object-fit:cover বসে (CSS দেখো)
      ──────────────────────────────────────────────────────── */
@@ -277,13 +218,8 @@
         index = (index + total) % total;
         if (index === currentSlide) return;
 
-        if (window.gsap && !reduceMotion) {
-            gsap.to($slides.eq(currentSlide), { opacity: 0, duration: 0.45, ease: 'power2.inOut' });
-            gsap.to($slides.eq(index), { opacity: 1, duration: 0.45, ease: 'power2.inOut' });
-        } else {
-            $slides.eq(currentSlide).css('opacity', 0);
-            $slides.eq(index).css('opacity', 1);
-        }
+        $slides.eq(currentSlide).css('opacity', 0);
+        $slides.eq(index).css('opacity', 1);
 
         $modal.find('.sister-concerns-modal__dot').removeClass('is-active').eq(index).addClass('is-active');
         currentSlide = index;
@@ -291,7 +227,7 @@
     }
 
     /* ════════════════════════════════════════════════════════
-        STEP 5 — OPEN / CLOSE MODAL (GSAP animated)
+        STEP 3 — OPEN / CLOSE MODAL (plain show/hide, no GSAP)
      ════════════════════════════════════════════════════════ */
     function openModal(id) {
         const data = SISTER_CONCERNS_DATA.find((d) => d.id === id);
@@ -300,50 +236,18 @@
         populateModal(data);
         $('html, body').addClass('sister-concerns-lock');
         $overlay.addClass('is-active');
-
-        if (reduceMotion || !window.gsap) {
-            gsap && gsap.set($overlay, { opacity: 1 });
-            gsap && gsap.set($modal, { autoAlpha: 1, y: 0, scale: 1 });
-            return;
-        }
-
-        gsap.fromTo($overlay, { opacity: 0 }, { opacity: 0.92, duration: 0.45, ease: 'power2.out' });
-
-        gsap.fromTo(
-            $modal,
-            { autoAlpha: 0, y: 40, scale: 0.96 },
-            { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'power3.out', delay: 0.08 }
-        );
-
-        gsap.fromTo(
-            $modal.find(
-                '.sister-concerns-modal__tag, .sister-concerns-modal__title, .sister-concerns-modal__desc, .sister-concerns-modal__points li, .sister-concerns-modal__cta'
-            ),
-            { autoAlpha: 0, y: 18 },
-            { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power3.out', stagger: 0.06, delay: 0.32 }
-        );
     }
 
     function closeModal() {
         if (!$overlay.hasClass('is-active')) return;
 
-        const finish = () => {
-            $overlay.removeClass('is-active');
-            $('html, body').removeClass('sister-concerns-lock');
-            pauseAllSlides();
-        };
-
-        if (reduceMotion || !window.gsap) {
-            finish();
-            return;
-        }
-
-        gsap.to($modal, { autoAlpha: 0, y: 24, scale: 0.97, duration: 0.32, ease: 'power2.inOut' });
-        gsap.to($overlay, { opacity: 0, duration: 0.32, ease: 'power2.inOut', delay: 0.05, onComplete: finish });
+        $overlay.removeClass('is-active');
+        $('html, body').removeClass('sister-concerns-lock');
+        pauseAllSlides();
     }
 
     /* ════════════════════════════════════════════════════════
-        STEP 6 — EVENT BINDINGS
+        STEP 4 — EVENT BINDINGS
      ════════════════════════════════════════════════════════ */
     function bindEvents() {
         // card click → open modal (Visit button click বাদ দিয়ে)
@@ -384,8 +288,6 @@
      ════════════════════════════════════════════════════════ */
     $(function () {
         buildModalSkeleton();
-        initItemEntrance();
-        initItemHover();
         bindEvents();
     });
 })(jQuery);

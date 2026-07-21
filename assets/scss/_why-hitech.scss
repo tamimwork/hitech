@@ -54,7 +54,9 @@
 
 .why-hitech__left {
     width: 44.93%;
-
+    align-self: flex-start; // wrapper-এ align-items:flex-start আছে, তাও explicit রাখা ভালো
+    position: sticky;
+    top: 100px;
 }
 
 .why-hitech__right {
@@ -217,5 +219,18 @@
 @media (max-width:472px) {
     .why-hitech__heading h2 {
         font-size: 25px;
+    }
+}
+
+@media (max-width:1199px) {
+    .why-hitech__left {
+        width: 100%;
+        position: static; // পুরো left block আর sticky নয়
+    }
+
+    .why-hitech__img-box {
+        margin-right: 0;
+        position: sticky;
+        top: 20px; // চাইলে adjust করো
     }
 }

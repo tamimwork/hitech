@@ -30,7 +30,7 @@ mm.add("(min-width: 992px)", function() {
     scrollTrigger: {
       id: 'product-h-scroll',
       trigger: track,        // ⬅️ section এর বদলে card row (.product__content) এ trigger
-      start: 'top top',      // card row VP এর top এ পৌঁছালে তবেই pin শুরু হবে
+      start: 'center center',      // card row VP এর top এ পৌঁছালে তবেই pin শুরু হবে
       end: function () {
         return '+=' + (wrapper.scrollWidth - track.clientWidth);
       },

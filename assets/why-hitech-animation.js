@@ -226,11 +226,11 @@
       scrollTrigger: { trigger: '.why-hitech', start: 'top bottom', end: 'bottom top', scrub: 1.2 },
     });
 
-    gsap.to('.why-hitech__right', {
-      yPercent: 6,
-      ease    : 'none',
-      scrollTrigger: { trigger: '.why-hitech', start: 'top bottom', end: 'bottom top', scrub: 1.2 },
-    });
+  gsap.to('.why-hitech__right', {
+    yPercent: 6,
+    ease: 'none',
+    scrollTrigger: { trigger: '.why-hitech', start: 'top bottom', end: 'bottom top', scrub: 1.2 },
+  });
   }
 
   /* ════════════════════════════════════════════════════════════
@@ -239,49 +239,36 @@
       ভিন্ন গতিতে move করবে পুরো section scroll-এ (hero__autoplay-video
       + video-inner প্যারালাক্স প্যাটার্ন অনুসরণ করে), যাতে depth feel আসে।
    ════════════════════════════════════════════════════════════ */
-  function initImageParallax() {
-    const box  = document.querySelector('.why-hitech__img-box');
-    const imgs = document.querySelectorAll('.why-hitech__img-box .why-hitech__img img');
-    if (!box || !imgs.length) return;
+function initImageParallax() {
+  const box  = document.querySelector('.why-hitech__img-box');
+  const imgs = document.querySelectorAll('.why-hitech__img-box .why-hitech__img img');
+  if (!box || !imgs.length) return;
 
-    // ছবিগুলো box-এর চেয়ে বড় করে center করে রাখা হচ্ছে,
-    // যাতে parallax-এ move করলেও কোনো ফাঁকা edge না দেখায়
-    imgs.forEach(img => {
-      img.style.width    = '140%';
-      img.style.height   = '140%';
-      img.style.maxWidth = 'none';
-      img.style.position = 'relative';
-      img.style.left     = '-20%';
-      img.style.top      = '-20%';
-    });
+  imgs.forEach(img => {
+    img.style.width    = '140%';
+    img.style.height   = '140%';
+    img.style.maxWidth = 'none';
+    img.style.position = 'relative';
+    img.style.left     = '-20%';
+    img.style.top      = '-20%';
+  });
 
-    // ১. Frame (.why-hitech__img-box) — হালকা parallax
-    gsap.to(box, {
-      yPercent: 12,
-      ease    : 'none',
+  // box (frame)-এর parallax tween সরানো হলো — এটাই sticky-কে ভাঙছিল
+  // ভেতরের ছবির subtle parallax রাখা হলো, এটা sticky container-এর সাথে conflict করে না
+  gsap.fromTo(imgs,
+    { yPercent: -10 },
+    {
+      yPercent: 10,
+      ease: 'none',
       scrollTrigger: {
-        trigger : '.why-hitech',
-        start   : 'top bottom',
-        end     : 'bottom top',
-        scrub   : 1.3,
+        trigger: '.why-hitech',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.6,
       },
-    });
-
-    // ২. ভেতরের আসল ছবি — frame-এর চেয়ে দ্রুত/গভীর move করবে
-    gsap.fromTo(imgs,
-      { yPercent: -10 },
-      {
-        yPercent : 10,
-        ease     : 'none',
-        scrollTrigger: {
-          trigger : '.why-hitech',
-          start   : 'top bottom',
-          end     : 'bottom top',
-          scrub   : 1.6,
-        },
-      }
-    );
-  }
+    }
+  );
+}
 
   /* ════════════════════════════════════════════════════════════
       BOOT — সব function একসাথে চালানো হচ্ছে

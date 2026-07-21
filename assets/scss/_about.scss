@@ -7,12 +7,7 @@
     }
 }
 
-.about__shape1 {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 294px;
-}
+
 
 .about__shape2 {
     position: absolute;
@@ -21,8 +16,8 @@
 }
 
 .about__container {
-    max-width: 1240px;
-    margin: 0 auto;
+    max-width: 1440px;
+    margin-right:auto;
     padding: 0 20px;
     width: 100%;
 }
@@ -49,6 +44,9 @@
         font-kerning: none;
         text-rendering: optimizeSpeed;
         font-family: var(--display-font);
+        span{
+            overflow:  unset !important;
+        }
     }
 }
 
@@ -59,7 +57,6 @@
 .about__content {
     display: flex;
     gap: 20px;
-    max-width: 1032px;
     margin-left: auto;
     padding-bottom: 80px;
     border-bottom: 1px solid var(--strock-whtie-bg);
@@ -145,7 +142,7 @@
 }
 
 .about__left {
-    width: 39.92%;
+    width: 46.92%;
     height: 536px;
     img {
         width: 100%;
@@ -155,15 +152,14 @@
 }
 
 .about__right {
-    width: 58.13%;
+        width: 48.13%;
 }
 
 .about__left-year {
 transform: rotate(270deg);
     position: absolute;
     bottom: 250px;
-    left: -229px;
-
+        right: -337px;
     h3 {
         font-weight: 900;
         font-size: 240px;
@@ -191,8 +187,12 @@ transform: rotate(270deg);
     position: relative;
 }
 
-
-
+.about__title-box .heading-tag-box{
+    visibility: visible !important;
+}
+.about__achivemetns{
+    display: none;
+}
 @media (max-width:1399px) {
     .about__left-year h3 {
         font-size: 150px;
@@ -275,7 +275,7 @@ transform: rotate(270deg);
 
     .about__left {
         width: 100%;
-        height: auto;
+        height: 500px;
     }
 
     .about__right {
@@ -447,7 +447,7 @@ transform: rotate(270deg);
  
     .about-modal__media {
       width: 100% !important;
-      height: 570px;
+      height: 346px;
       flex-shrink: 0;
       position: sticky;
       top: 0;
