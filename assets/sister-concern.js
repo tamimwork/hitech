@@ -33,11 +33,12 @@
                 'Principal buyers include reputed companies across Europe — quality production and punctual shipment are the company\u2019s motto.',
                 'Prime Customer Award from Janata Bank (2002) and a CSR Award for establishing Mahbubur Rahman Memorial Hospital.',
             ],
-            website: '#',
+            website: 'https://rkgltd.com/',
             gallery: [
-                'assets/maksuda.mp4',
-                'assets/hospital.mp4',
-                'assets/why-hitech3.jpg',
+                'assets/rahman1.jpg',
+                'assets/rahman2.jpg',
+                'assets/rahman3.jpg',
+                'assets/rahman4.jpg'
             ],
         },
         {
@@ -51,11 +52,12 @@
                 'Vision: to emerge as a premier yarn manufacturer that fabric producers can rely on.',
                 'Quality · Commitment · Consistency — the guiding principles of Maksuda Spinning Mills.',
             ],
-            website: '#',
+            website: 'https://maksudaspinning.com/',
             gallery: [
-                'assets/why-hitech1.jpg',
-                'assets/why-hitech2.jpg',
-                'assets/why-hitech3.jpg',
+                'assets/maksuda1.png',
+                'assets/maksuda2.png',
+                'assets/maksuda3.png',
+                'assets/maksuda4.png',
             ],
         },
         {
@@ -69,11 +71,14 @@
                 'Diagnostic facilities: Digital X-ray, 4D Ultrasonogram, Echo color Doppler, ECG and advanced laboratory equipment.',
                 'Service to Humanity — running for the poor and needy people of the owners\u2019 native village.',
             ],
-            website: '#',
+            website: 'https://mahbuburrahmanhospital.com/',
             gallery: [
+                'assets/hospital1.jpg',
+                'assets/hospital2.jpg',
+                'assets/hospital3.jpg',
+                'assets/hospital4.jpg',
+                'assets/hospital5.jpg',
                 'assets/hospital.mp4',
-                'assets/why-hitech2.jpg',
-                'assets/why-hitech2.jpg',
             ],
         },
     ];

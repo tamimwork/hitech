@@ -54,7 +54,7 @@
 
 .why-hitech__left {
     width: 44.93%;
-    align-self: flex-start; // wrapper-এ align-items:flex-start আছে, তাও explicit রাখা ভালো
+    align-self: flex-start; 
     position: sticky;
     top: 100px;
 }
@@ -90,15 +90,12 @@
 .why-hitech__item {
     padding: 40px;
     border: 1px solid var((--strock-dark-bg));
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-bottom: 20px;
+    position: relative;
     cursor: pointer;
 }
 
 .why-hitech__item-left {
-    width: calc(100% - 136px);
 
     h4 {
         font-family: var(--display-font);
@@ -121,6 +118,9 @@
 }
 
 .why-hitech__number {
+    position: absolute;
+    top: 12px;
+    right: 12px;
     h5 {
         font-family: var(--display-font);
         font-weight: 700;
@@ -168,7 +168,7 @@
     }
 
     .why-hitech__heading {
-        margin-bottom: 10px;
+        margin-bottom: 35px;
     }
 
     .why-hitech__img-box {
@@ -193,8 +193,6 @@
 
 @media (max-width:575px) {
     .why-hitech__item {
-        flex-direction: column-reverse;
-        justify-content: flex-start;
         gap: 25px;
         padding: 25px;
     }

@@ -63,32 +63,114 @@ $(document).ready(function() {
 
 // Start Manufacturing Card Swipe
 
-$(document).ready(function(){
-gsap.registerPlugin(ScrollTrigger);
-const cards = gsap.utils.toArray('.manufacturing__item');
-cards.forEach((card, i) => {
-    card.style.zIndex = i + 1; 
-    if (i < cards.length - 1) {
-        ScrollTrigger.create({
-            trigger: card,
-            start: 'top top+=80',
-            pin: true,
-            pinSpacing: false,
-        });
-        gsap.to(card, {
-            scale: 0.95,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: card,
-                start: 'top top+=80',
-                end: 'bottom top+=80',
-                scrub: true,
-            }
+$(document).ready(function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ধাপ ১: HTML স্পর্শ না করেই card-কে wrap করা
+    $('.manufacturing__item').each(function () {
+        $(this).wrap('<div class="manufacturing__item-wrap"></div>');
+    });
+
+    let scrollTriggersReady = false;
+    let mm = gsap.matchMedia();
+
+    function setupScrollTriggers() {
+        mm.add("(min-width: 1025px)", () => {
+            const wraps = gsap.utils.toArray('.manufacturing__item-wrap');
+            let triggers = [];
+
+            wraps.forEach((wrap, i) => {
+                const card = wrap.querySelector('.manufacturing__item');
+                card.style.zIndex = i + 1;
+
+                const pinST = ScrollTrigger.create({
+                    trigger: wrap,
+                    start: 'top top+=80',
+                    end: 'bottom top+=80',
+                    pin: card,
+                    pinSpacing: false,
+                    invalidateOnRefresh: true, // refresh হলে নতুন করে height মাপবে
+                });
+
+                let scaleST = null;
+                if (i < wraps.length - 1) {
+                    scaleST = gsap.to(card, {
+                        scale: 0.95,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: wrap,
+                            start: 'top top+=80',
+                            end: 'bottom top+=80',
+                            scrub: true,
+                            invalidateOnRefresh: true,
+                        }
+                    }).scrollTrigger;
+                }
+
+                triggers.push(pinST, scaleST);
+            });
+
+            return () => triggers.forEach(t => t && t.kill());
         });
     }
-});
-})
 
+    setupScrollTriggers();
+
+    // ================================
+    // ধাপ ২: সব ছবি লোড হওয়ার পর height ঠিকভাবে recalculate
+    // এইটাই মূল ফিক্স — কালো গ্যাপ এখান থেকেই হচ্ছিল
+    // ================================
+    function refreshAfterImages() {
+        const images = document.querySelectorAll('.manufacturing__item img');
+        let loaded = 0;
+        const total = images.length;
+
+        if (total === 0) {
+            ScrollTrigger.refresh();
+            return;
+        }
+
+        images.forEach((img) => {
+            if (img.complete) {
+                loaded++;
+            } else {
+                img.addEventListener('load', () => {
+                    loaded++;
+                    if (loaded === total) {
+                        ScrollTrigger.refresh();
+                    }
+                });
+                img.addEventListener('error', () => {
+                    loaded++;
+                    if (loaded === total) {
+                        ScrollTrigger.refresh();
+                    }
+                });
+            }
+        });
+
+        if (loaded === total) {
+            ScrollTrigger.refresh();
+        }
+    }
+
+    refreshAfterImages();
+
+    // ================================
+    // ধাপ ৩: window পুরোপুরি load হলে (fonts সহ) আরেকবার refresh
+    // (at-char-animation টেক্সট অ্যানিমেশন থাকায় height পরে বদলাতে পারে)
+    // ================================
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 300); // animation/font settle হওয়ার জন্য সামান্য delay
+    });
+
+    // resize হলে recalc
+    window.addEventListener('resize', () => {
+        ScrollTrigger.refresh();
+    });
+});
 
 // End Manufacturing Card Swipe
 
@@ -129,3 +211,36 @@ $(document).ready(function() {
 });
 
 // End Hero Button Modal Open
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
