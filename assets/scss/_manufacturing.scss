@@ -1,0 +1,248 @@
+.manufacturing__inner {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+
+    .heading-tag-box {
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-bottom: 60px;
+    }
+}
+
+.manufacturing__shape1 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+}
+
+.manufacturing__shape2 {
+    position: absolute;
+    right: 0;
+    top: -54px;
+}
+
+.manufacturing__container {
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.manufacturing__heading {
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+    h2 {
+        font-family: var(--second-family);
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 100%;
+        text-transform: uppercase;
+        color: var(--dark);
+
+        em {
+            font-style: normal;
+            color: var(--brand);
+        }
+    }
+}
+
+.manufacturing__title-box {
+    margin-bottom: 50px;
+}
+
+.manufacturing__items {
+    position: relative;
+    background-color: var(--white);
+}
+
+.manufacturing__item {
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+    border: 1px solid var(--strock-whtie-bg);
+    transform-origin: center top;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    cursor: default;
+    padding: 10px 0;
+}
+
+.manufacturing__item:not(:first-child) {
+    margin-top: 30px;
+}
+
+.manufacturing__item-left {
+    width: 42%;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.manufacturing__item-right {
+    width: 52%;
+    height: auto;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.manufacturing__tag {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    background: var(--white, #fff);
+    color: var(--brand, #9c1006);
+    font-family: var(--second-family, sans-serif);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .5px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.manufacturing__icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 30px;
+}
+
+.manufacturing__text {
+    margin-bottom: 24px;
+
+    h4 {
+            font-family: var(--heading-font);
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 100%;
+        text-transform: uppercase;
+        color: var(--brand);
+        margin-bottom: 20px;
+
+    }
+
+    p {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 160%;
+        color: var(--body-white-bg);
+    }
+}
+
+.manufacturing__info {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(17, 17, 17, 0.08);
+        font-size: 14px;
+
+        .manufacturing__info-label {
+            color: #666;
+        }
+
+        .manufacturing__info-value {
+            color: var(--dark, #111);
+            font-weight: 600;
+            text-align: right;
+        }
+    }
+}
+
+/* ============ Responsive Styles ============ */
+@media (max-width: 1199px) {
+    .manufacturing__heading h2 {
+        font-size: 63px;
+    }
+
+    .manufacturing__item-left {
+        width: 48%;
+    }
+
+    .manufacturing__item-right {
+        width: 48%;
+    }
+
+    .manufacturing__item {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 1024px) {
+    .manufacturing__item {
+        flex-direction: column-reverse;
+        padding: 20px;
+    }
+
+    .manufacturing__item-left {
+        width: 100%;
+        margin: 0;
+    }
+
+    .manufacturing__item-right {
+        width: 100%;
+        height: 350px;
+    }
+
+    .manufacturing__icon {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .manufacturing__heading h2 {
+        font-size: 50px;
+    }
+
+    .manufacturing__inner {
+        padding: 60px 0;
+    }
+
+    .manufacturing__shape2 {
+        width: 250px;
+    }
+
+    .manufacturing__icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .manufacturing__text h4 {
+        font-size: 28px;
+    }
+
+    .manufacturing__item-right {
+        height: 260px;
+    }
+
+    .manufacturing__info li {
+        flex-direction: column;
+        gap: 4px;
+
+        .manufacturing__info-value {
+            text-align: left;
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .manufacturing__heading h2 {
+        font-size: 40px;
+    }
+}
