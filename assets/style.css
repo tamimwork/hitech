@@ -334,6 +334,11 @@ body {
     width: calc(100% - 170px);
   }
 }
+@media (max-width:1250px){
+  .header__menu ul{
+    gap:20px;
+  }
+}
 @media (max-width: 1160px) {
   .header__menu {
     display: none;
