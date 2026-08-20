@@ -34,12 +34,12 @@
             ],
             website: 'https://maksudaspinning.com/',
             gallery: [
-                'assets/images/sister-consern/maksuda/1.png',
-                'assets/images/sister-consern/maksuda/2.jpg',
-                'assets/images/sister-consern/maksuda/3.jpg',
-                'assets/images/sister-consern/maksuda/4.jpg',
-                'assets/images/sister-consern/maksuda/5.jpg',
-                'assets/images/sister-consern/maksuda/6.jpg',
+                'assets/images/sister-consern/Maksuda/1.png',
+                'assets/images/sister-consern/Maksuda/2.jpg',
+                'assets/images/sister-consern/Maksuda/3.jpg',
+                'assets/images/sister-consern/Maksuda/4.jpg',
+                'assets/images/sister-consern/Maksuda/5.jpg',
+                'assets/images/sister-consern/Maksuda/6.jpg',
             ],
         },
     ];
