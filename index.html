@@ -54,7 +54,7 @@
                                 <li><a href="#manufacturer">Manufacturing</a></li>
                                 <li><a href="#sister">Sister Concerns</a></li>
                                 <li><a href="#hts-clients">Our Clients</a></li>
-                                <li><a href="csr.html">CSR</a></li>
+                                <li><a href="/csr">CSR</a></li>
                                 <li><a href="#media">Media</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
@@ -109,7 +109,7 @@
             <li><a href="#manufacturer">Manufacturing</a></li>
             <li><a href="#sister">Sister Concerns</a></li>
             <li><a href="#hts-clients">Our Clients</a></li>
-            <li><a href="csr.html">CSR</a></li>
+            <li><a href="/csr">CSR</a></li>
             <li><a href="#media">Media</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -900,6 +900,90 @@
 
                 <!-- End Product -->
 
+
+<section class="certifications" id="certifications">
+    <div class="certifications__container">
+
+        <div class="certifications__header">
+            <span class="heading-tag-box">Recognitions</span>
+            <h2 class="certifications__title">Our <em>Certifications</em> & Achievements</h2>
+        </div>
+
+        <div class="cert-split">
+
+            <!-- LEFT: Certifications (with popup + download) -->
+            <div class="cert-split__col">
+                <h3 class="cert-split__heading">Certifications</h3>
+                <p class="cert-split__desc">Assessed and certified by internationally accredited bodies.</p>
+
+                <div class="certifications__grid">
+
+                    <div class="cert-card" data-title="ISO 9001:2015 - Hi-Tech Steel" data-img="assets/images/cirtification/1.jpg" data-download="assets/images/cirtification/1.jpg">
+                        <div class="cert-card__frame">
+                            <img src="assets/images/cirtification/1.jpg" alt="ISO 9001:2015 Certificate - Hi-Tech Steel">
+                            <div class="cert-card__overlay">
+                                <span class="cert-card__icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 21H3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 3L13.5 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21L10.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="cert-card__title">ISO 9001:2015</h4>
+                        <p class="cert-card__desc">Quality Management System — RICL</p>
+                    </div>
+
+                    <div class="cert-card" data-title="ISO 9001:2015 (QMS) - QEC Registration" data-img="assets/images/cirtification/2.jpg" data-download="assets/images/cirtification/2.jpg">
+                        <div class="cert-card__frame">
+                            <img src="assets/images/cirtification/2.jpg" alt="ISO 9001:2015 QMS Certificate - QEC Registrars">
+                            <div class="cert-card__overlay">
+                                <span class="cert-card__icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 21H3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 3L13.5 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21L10.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="cert-card__title">ISO 9001:2015 (QMS)</h4>
+                        <p class="cert-card__desc">QEC Registrars – Quality Management</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT: Achievements / Recognitions (plain logos, no popup) -->
+            <div class="cert-split__col">
+                <h3 class="cert-split__heading">Achievements & Recognitions</h3>
+                <p class="cert-split__desc">Recognized and approved by national regulatory authorities.</p>
+
+                <div class="achievements__grid">
+
+                    <div class="achieve-card">
+                        <div class="achieve-card__logo">
+                            <img src="assets/images/cirtification/logo1.jpg" alt="BSTI Approved">
+                        </div>
+                    </div>
+
+                    <div class="achieve-card">
+                        <div class="achieve-card__logo">
+                            <img src="assets/images/cirtification/logo2.jpg" alt="Fire Service & Civil Defence">
+                        </div>
+                    </div>
+
+                    <div class="achieve-card">
+                        <div class="achieve-card__logo">
+                            <img src="assets/images/cirtification/logo3.jpg" alt="Industry Certification Mark">
+                        </div>
+                    </div>
+
+                    <div class="achieve-card">
+                        <div class="achieve-card__logo">
+                            <img src="assets/images/cirtification/logo4.jpg" alt="ISO 9001:2015 Certified">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 
                 <!-- Start Why Hitech -->
@@ -2398,7 +2482,25 @@
     </div>
 
 
-
+<!-- Lightbox Popup -->
+<div class="cert-lightbox" id="certLightbox">
+    <div class="cert-lightbox__backdrop" data-cert-close></div>
+    <div class="cert-lightbox__inner">
+        <button class="cert-lightbox__close" data-cert-close aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="cert-lightbox__imgwrap">
+            <img src="" alt="" id="certLightboxImg">
+        </div>
+        <div class="cert-lightbox__footer">
+            <h4 id="certLightboxTitle"></h4>
+            <a href="#" id="certLightboxDownload" download class="cert-lightbox__download">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 19H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Download
+            </a>
+        </div>
+    </div>
+</div>
 
 
 
@@ -2419,7 +2521,7 @@
     <script src="assets/js/wather.js"></script>
     <script src="assets/js/media-animation.js"></script>
     <script src="assets/js/main.js"></script>
-<!-- <script>
+ <script>
     // Disable right click
     document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
@@ -2464,7 +2566,7 @@
             return false;
         }
     });
-</script> -->
+</script> 
 
 </body>
 

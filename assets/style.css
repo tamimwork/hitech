@@ -1521,7 +1521,7 @@ body.modal-open-lock {
   }
 }
 .product__inner {
-  padding: 0 0 100px;
+  padding: 0 0 0px;
   position: relative;
   overflow: hidden;
 }
@@ -1766,7 +1766,7 @@ body.modal-open-lock {
     margin-bottom: 45px;
   }
   .product__inner {
-    padding: 0 0 80px;
+    padding: 0 0 0px;
   }
   .product__heading {
     max-width: 750px;
@@ -1788,7 +1788,7 @@ body.modal-open-lock {
     text-align: center;
   }
   .product__inner {
-    padding: 0 0 60px;
+    padding: 0 0 0px;
   }
   .product-card__left {
     padding: 25px 25px 50px;
@@ -5243,6 +5243,458 @@ body.mobile-menu-open {
   padding: 20px 0;
 }
 
+/* ==========================================================================
+   Certifications Section
+   ========================================================================== */
+.certifications {
+  padding: 30px 0 80px;
+  background-color: var(--light-bg, #f6f6f6);
+  width: 100%;
+}
+
+.certifications__container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Header */
+.certifications__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.certifications__title {
+  font-family: var(--second-family);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--dark);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.certifications__title em {
+  font-style: normal;
+  color: var(--brand);
+}
+
+.certifications__subtitle {
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: var(--body-white-bg);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Grid - flex based, wraps responsively */
+.certifications__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.cert-card {
+  flex: 0 1 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cert-card__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--strock-whtie-bg);
+  background-color: var(--white);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.cert-card__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.cert-card:hover .cert-card__frame {
+  border-color: var(--brand);
+  box-shadow: 0 12px 30px rgba(156, 16, 6, 0.15);
+  transform: translateY(-4px);
+}
+
+.cert-card:hover .cert-card__frame img {
+  transform: scale(1.05);
+}
+
+.cert-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cert-card:hover .cert-card__overlay {
+  opacity: 1;
+}
+
+.cert-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.cert-card:hover .cert-card__icon {
+  transform: scale(1);
+}
+
+.cert-card__title {
+  font-family: var(--second-family);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 16px 0 4px;
+}
+
+.cert-card__desc {
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  color: var(--body-white-bg);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+.cert-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+
+.cert-lightbox.is-active {
+  display: flex;
+}
+
+.cert-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.cert-lightbox__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: all 0.25s ease;
+}
+
+.cert-lightbox.is-active .cert-lightbox__inner {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cert-lightbox__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--white);
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.cert-lightbox__close:hover {
+  background: var(--brand);
+  color: var(--white);
+}
+
+.cert-lightbox__imgwrap {
+  width: 100%;
+  max-height: 70vh;
+  overflow: auto;
+  background: var(--light-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-lightbox__imgwrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cert-lightbox__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--strock-whtie-bg);
+}
+
+.cert-lightbox__footer h4 {
+  font-family: var(--second-family);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0;
+}
+
+.cert-lightbox__download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--brand);
+  color: var(--white);
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.cert-lightbox__download:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* Split layout: Certifications vs Achievements, 50/50 */
+.cert-split {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.cert-split__col {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+.cert-split__heading {
+  font-family: var(--second-family);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0 0 6px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.cert-split__heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 46px;
+  height: 3px;
+  background-color: var(--brand);
+  border-radius: 3px;
+}
+
+.cert-split__desc {
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--body-white-bg);
+  margin: 14px 0 26px;
+  line-height: 1.6;
+}
+
+/* Resize certification cards to fit the 50% column */
+.cert-split .certifications__grid {
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.cert-split .cert-card {
+  flex: 0 1 45%;
+}
+
+/* Achievements grid - plain logo cards, no popup */
+.achievements__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.achieve-card {
+  flex: 0 1 200px;
+  background-color: var(--white);
+  border: 1px solid var(--strock-whtie-bg);
+  border-radius: 10px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.achieve-card:hover {
+  border-color: var(--brand);
+  box-shadow: 0 10px 24px rgba(156, 16, 6, 0.1);
+  transform: translateY(-4px);
+}
+
+.achieve-card__logo {
+  width: 125px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.achieve-card__logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  scale: 1.2;
+}
+
+.achieve-card__title {
+  font-family: var(--second-family);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0 0 4px;
+}
+
+.achieve-card__desc {
+  font-family: var(--font-family);
+  font-size: 12.5px;
+  color: var(--body-white-bg);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .cert-split {
+    flex-direction: column;
+    gap: 45px;
+  }
+  .cert-split .cert-card {
+    flex: 0 1 45% px;
+  }
+  .achieve-card {
+    flex: 0 1 160px;
+  }
+}
+@media (max-width: 575px) {
+  .cert-split .cert-card {
+    flex: 0 1 100%;
+  }
+  .achieve-card {
+    flex: 0 1 45%;
+    padding: 18px 12px;
+  }
+  .achieve-card__logo {
+    width: 80px;
+    height: 80px;
+  }
+  .cert-split .certifications__grid {
+    justify-content: center;
+  }
+}
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 991px) {
+  .certifications__title {
+    font-size: 30px;
+  }
+  .cert-card {
+    flex: 0 1 200px;
+  }
+}
+@media (max-width: 575px) {
+  .certifications__container {
+    padding: 0 16px;
+    gap: 35px;
+  }
+  .certifications__title {
+    font-size: 24px;
+  }
+  .cert-card {
+    flex: 0 1 45%;
+  }
+  .cert-card__frame {
+    border-radius: 8px;
+  }
+  .cert-lightbox__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cert-lightbox__download {
+    justify-content: center;
+  }
+}
+@media (max-width: 991px) {
+  .cert-card {
+    flex: 0 1 320px;
+  }
+}
+@media (max-width: 575px) {
+  .cert-card {
+    flex: 0 1 100%;
+    max-width: 380px;
+  }
+}
 ::-webkit-scrollbar {
   width: 9px;
   height: 9px;

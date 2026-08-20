@@ -504,3 +504,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animateTimeline();
 });
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const certCards = document.querySelectorAll('.cert-card');
+    const lightbox = document.getElementById('certLightbox');
+    const lightboxImg = document.getElementById('certLightboxImg');
+    const lightboxTitle = document.getElementById('certLightboxTitle');
+    const lightboxDownload = document.getElementById('certLightboxDownload');
+    const closeTriggers = document.querySelectorAll('[data-cert-close]');
+
+    if (!lightbox) return;
+
+    certCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const imgSrc = card.getAttribute('data-img');
+            const downloadSrc = card.getAttribute('data-download') || imgSrc;
+            const title = card.getAttribute('data-title') || '';
+
+            lightboxImg.src = imgSrc;
+            lightboxImg.alt = title;
+            lightboxTitle.textContent = title;
+            lightboxDownload.href = downloadSrc;
+            lightboxDownload.setAttribute('download', title.replace(/\s+/g, '-').toLowerCase() || 'certificate');
+
+            lightbox.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeLightbox() {
+        lightbox.classList.remove('is-active');
+        document.body.style.overflow = '';
+    }
+
+    closeTriggers.forEach(el => el.addEventListener('click', closeLightbox));
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-active')) {
+            closeLightbox();
+        }
+    });
+});
