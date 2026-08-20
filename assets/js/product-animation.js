@@ -4,22 +4,18 @@
     return;
   }
   gsap.registerPlugin(ScrollTrigger);
- 
+
   function initProductHorizontalScroll() {
     var section = document.querySelector('.product');
     var track   = document.querySelector('.product__content'); // the visible "window"
     var wrapper = document.querySelector('.product__items');   // the row that slides
- 
     if (!section || !track || !wrapper) return;
- 
     // safe to call again on resize/refresh without stacking duplicate triggers
     ScrollTrigger.getAll().forEach(function (st) {
       if (st.vars && st.vars.id === 'product-h-scroll') st.kill();
     });
-
     // MatchMedia use kore screen size onujayi animation trigger kora holo
     var mm = gsap.matchMedia();
-
     // Shudhumatro 992px theke boro screen e horizontal scroll hobe
 mm.add("(min-width: 992px)", function() {
   gsap.to(wrapper, {
@@ -29,13 +25,13 @@ mm.add("(min-width: 992px)", function() {
     ease: 'none',
     scrollTrigger: {
       id: 'product-h-scroll',
-      trigger: track,        // ⬅️ section এর বদলে card row (.product__content) এ trigger
-      start: 'center center',      // card row VP এর top এ পৌঁছালে তবেই pin শুরু হবে
+      trigger: track,        
+      start: 'center center',      
       end: function () {
         return '+=' + (wrapper.scrollWidth - track.clientWidth);
       },
       scrub: true,
-      pin: track,             // ⬅️ পুরো section না, শুধু card row (.product__content) pin হবে
+      pin: track,            
       anticipatePin: 1,
       invalidateOnRefresh: true,
       refreshPriority: 1
@@ -53,14 +49,11 @@ mm.add("(min-width: 992px)", function() {
 
 (function () {
   'use strict';
-
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
     console.warn('[product-anim] GSAP + ScrollTrigger must be loaded first.');
     return;
   }
-
   gsap.registerPlugin(ScrollTrigger);
-
   /* ══════════════════════════════════════════════════════════════
      1. SHAPE
         • Infinite scale breath  (sine in-out, linear feel, yoyo)
@@ -352,11 +345,9 @@ mm.add("(min-width: 992px)", function() {
         animTitle();
         animCards();
         animHover();
-        
-        // 💡 আপডেট: DOM-এর সিরিয়াল অনুযায়ী ট্রিগারগুলো সাজিয়ে নিবে
+      
         ScrollTrigger.sort(); 
         
-        // এরপর সবগুলো মেজারমেন্ট নতুন করে ক্যালকুলেট করবে
         ScrollTrigger.refresh();  
       });
     });
