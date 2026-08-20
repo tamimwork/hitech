@@ -460,26 +460,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = document.getElementById('timelinePathFill');
     const nodes = document.querySelectorAll('.timeline-node');
     const section = document.getElementById('timeline-story');
+    const wrapper = document.querySelector('.timeline-story__wrapper');
 
-    if (!path || !section) return;
+    if (!path || !section || !wrapper) return;
 
     const pathLength = path.getTotalLength();
     path.style.strokeDasharray = pathLength;
     path.style.strokeDashoffset = pathLength;
 
     function animateTimeline() {
-        const rect = section.getBoundingClientRect();
         const windowHeight = window.innerHeight;
+        const isMobile = window.innerWidth <= 991;
 
-        let scrollPercentage = (windowHeight - rect.top) / (rect.height + windowHeight * 0.2);
-        scrollPercentage = Math.max(0, Math.min(1, scrollPercentage));
+        // Desktop SVG pipe percentage (based on full section - unchanged)
+        const sectionRect = section.getBoundingClientRect();
+        let desktopPercentage = (windowHeight - sectionRect.top) / (sectionRect.height + windowHeight * 0.2);
+        desktopPercentage = Math.max(0, Math.min(1, desktopPercentage));
 
-        const drawLength = pathLength * scrollPercentage;
+        const drawLength = pathLength * desktopPercentage;
         path.style.strokeDashoffset = pathLength - drawLength;
+
+        // Mobile pole percentage - based ONLY on the wrapper (nodes area), not the whole section
+        const wrapperRect = wrapper.getBoundingClientRect();
+        let mobilePercentage = (windowHeight - wrapperRect.top) / (wrapperRect.height + windowHeight * 0.2);
+        mobilePercentage = Math.max(0, Math.min(1, mobilePercentage));
+        section.style.setProperty('--mobile-fill', (mobilePercentage * 100) + '%');
+
+        // Use whichever percentage matches the active layout to trigger node highlighting
+        const activePercentage = isMobile ? mobilePercentage : desktopPercentage;
 
         nodes.forEach(node => {
             const nodeProgress = parseFloat(node.getAttribute('data-progress'));
-            if (scrollPercentage >= nodeProgress) {
+            if (activePercentage >= nodeProgress) {
                 node.classList.add('active');
             } else {
                 node.classList.remove('active');
@@ -489,6 +501,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', animateTimeline);
     window.addEventListener('resize', animateTimeline);
-    
+
     animateTimeline();
 });

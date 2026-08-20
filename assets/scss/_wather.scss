@@ -734,3 +734,9 @@
     transition: none !important;
   }
 }
+
+@media(max-width:1024px){
+  .hts-clients__dots{
+    display: none;
+  }
+}
